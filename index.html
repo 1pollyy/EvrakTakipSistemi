@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luminara Evrak Takip Sistemi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="hero">
+      <h1 class="blue-title">Luminara Holding Evrak Takip Sistemi</h1>
+      <div class="auth">
+        <div id="registerBox">
+          <h3>Kayıt Ol</h3>
+          <input type="text" id="regUser" placeholder="Kullanıcı Adı">
+          <input type="password" id="regPass" placeholder="Şifre">
+          <button onclick="register()">Kayıt Ol</button>
+        </div>
+        <div id="loginBox">
+          <h3>Giriş Yap</h3>
+          <input type="text" id="loginUser" placeholder="Kullanıcı Adı">
+          <input type="password" id="loginPass" placeholder="Şifre">
+          <button onclick="login()">Giriş Yap</button>
+        </div>
+        <button onclick="proceedAsGuest()">Giriş Yapmadan Devam Et</button>
+      </div>
+    </div>
+
+    <div id="mainContent" style="display:none">
+      <div class="nav">
+        <button onclick="showSection('anasayfa')">Ana Sayfa</button>
+        <button onclick="showSection('gelen')">Gelen Evraklar</button>
+        <button onclick="showSection('onay')">Onaylananlar</button>
+        <button onclick="showSection('red')">Reddedilenler</button>
+        <button onclick="showSection('beklemede')">Beklemede</button>
+        <button onclick="showSection('arsiv')">Arşiv</button>
+        <button id="logoutBtn" onclick="logout()">Çıkış Yap</button>
+      </div>
+
+      <div id="anasayfa" class="section">
+        <h2>Hoş Geldiniz</h2>
+        <p>Sisteme giriş yaparak evrak ekleyebilir, gelen kutusundan evrakları yönetebilir, durumlarına göre filtreleyebilirsiniz.</p>
+      </div>
+
+      <div id="gelen" class="section" style="display:none"></div>
+      <div id="onay" class="section" style="display:none"></div>
+      <div id="red" class="section" style="display:none"></div>
+      <div id="beklemede" class="section" style="display:none"></div>
+      <div id="arsiv" class="section" style="display:none"></div>
+
+      <div id="addDocForm" class="form" style="display:none">
+        <h3>Yeni Evrak Ekle</h3>
+        <input type="text" id="newName" placeholder="Evrak Adı">
+        <select id="newDept">
+          <option value="">Departman Seçiniz</option>
+          <option value="Klinik">Klinik</option>
+          <option value="Regülasyon">Regülasyon</option>
+          <option value="Lojistik">Lojistik</option>
+          <option value="Finans">Finans</option>
+          <option value="Hukuk">Hukuk</option>
+          <option value="Ar-Ge">Ar-Ge</option>
+          <option value="Yönetim">Yönetim</option>
+        </select>
+        <input type="text" id="newFile" placeholder="Dosya Adı (PDF)">
+        <button onclick="addNewDoc()">Kaydet</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
